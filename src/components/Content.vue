@@ -48,7 +48,7 @@
       </select>
     </div> -->
 
-    <h1>Method</h1>
+    <!-- <h1>Method</h1>
     <div>
       {{username}} : {{password}}
       <br/>
@@ -57,7 +57,8 @@
       <input type="password" v-model="password">
       <br/>
       <button @click="show_alert('Ice')"> Show Alert </button>
-    </div>
+    </div> -->
+    <div :style="`background-color:${color}`">Props is color {{ color }} name {{name}}</div>
 
     <Avatar />
   </div>
@@ -65,6 +66,10 @@
 <script>
 import Avatar from "@/components/Avatar.vue";
 export default {
+  props: {
+    color: String,
+    name:String
+  },
   components: {
     Avatar,
   },
@@ -94,11 +99,11 @@ export default {
       ],
     };
   },
-  methods:{
-    show_alert(nickname){
-      alert(this.username+":"+this.password+":"+nickname)
-    }
-  }
+  methods: {
+    show_alert(nickname) {
+      alert(this.username + ":" + this.password + ":" + nickname);
+    },
+  },
 };
 </script>
 

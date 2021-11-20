@@ -1,7 +1,13 @@
 <template>
   <div id="app">
     <Header />
-    <Content />
+    <Content
+      v-for="(car_item, index) in cars"
+      :color="car_item.color"
+      :name="car_item.name"
+      :key="index"
+    />
+
     <Footer />
   </div>
 </template>
@@ -16,6 +22,20 @@ export default {
     Header,
     Content,
     Footer,
+  },
+  data() {
+    return {
+      cars: [
+        {
+          name: "car 1",
+          color: "green",
+        },
+        {
+          name: "car 2",
+          color: "red",
+        },
+      ],
+    };
   },
 };
 </script>
