@@ -6,7 +6,11 @@
       :color="car_item.color"
       :name="car_item.name"
       :key="index"
-    />
+    >
+    <h1>
+      slot body
+    </h1>
+    </Content>
 
     <Footer />
   </div>
@@ -28,12 +32,8 @@ export default {
       cars: [
         {
           name: "car 1",
-          color: "green",
-        },
-        {
-          name: "car 2",
-          color: "red",
-        },
+          color: "#FFFFFF",
+        }
       ],
     };
   },

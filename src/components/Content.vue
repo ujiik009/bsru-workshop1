@@ -58,23 +58,62 @@
       <br/>
       <button @click="show_alert('Ice')"> Show Alert </button>
     </div> -->
-    <div :style="`background-color:${color}`">Props is color {{ color }} name {{name}}</div>
+    <!-- <div :style="`background-color:${color}`">Props is color {{ color }} name {{name}}</div>
+    -->
+    <center>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Product Name</th>
+          <th>Product Price</th>
+        </tr>
+        <tr v-for="(product_item, index) in product" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td>{{ product_item.name }}</td>
+          <td>{{ product_item.price }}</td>
+        </tr>
+      </table>
+    </center>
 
+    <div>
+      {{ sum_product_price }}
+    </div>
     <Avatar />
   </div>
 </template>
 <script>
 import Avatar from "@/components/Avatar.vue";
 export default {
+  computed: {
+    sum_product_price() {
+      return this.product.reduce((value, data) => {
+        return (value += data.price);
+      }, 0);
+    },
+  },
   props: {
     color: String,
-    name:String
+    name: String,
   },
   components: {
     Avatar,
   },
   data() {
     return {
+      product: [
+        {
+          name: "Car",
+          price: 200000,
+        },
+        {
+          name: "computer",
+          price: 15000,
+        },
+        {
+          name: "TV",
+          price: 450,
+        },
+      ],
       counter: 0,
       number1: 2,
       hiden: true,
